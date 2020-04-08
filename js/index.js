@@ -43,28 +43,20 @@ mainHeader.addEventListener("mouseout", function () {
 const navLinks = document.querySelectorAll("nav a")
 
 navLinks[0].addEventListener("dblclick", function () {
-
     navLinks[0].innerText = "Do"
-
 })
 
 navLinks[1].addEventListener("dblclick", function () {
-
     navLinks[1].innerText = "Not"
-
 })
 
 
 navLinks[2].addEventListener("dblclick", function () {
-
     navLinks[2].innerText = "Travel"
-
 })
 
 navLinks[3].addEventListener("dblclick", function () {
-
     navLinks[3].innerText = "Now"
-
 })
 
 
@@ -85,10 +77,10 @@ headerImg.addEventListener("mouseenter", function () {
 
 //mouse leave event 6
 
-// headerImg.addEventListener("mouseleave", function () {
+headerImg.addEventListener("mouseleave", function () {
 
-//     headerImg.src = "img/fun-bus.jpg"
-// });
+    headerImg.src = "img/fun-bus.jpg"
+});
 
 
 
@@ -97,7 +89,7 @@ headerImg.addEventListener("mouseenter", function () {
 const h2s = document.querySelectorAll("h2")
 const h4s = document.querySelectorAll("h4")
 
-function sadKey(event) {
+function keyPress(event) {
 
     if (event.key === 's') {
         h2s[0].innerText = "Welcome to Sad Bus!"
@@ -126,4 +118,37 @@ function sadKey(event) {
     }
 }
 
-document.addEventListener("keydown", sadKey)
+document.addEventListener("keydown", keyPress)
+
+/////WINDOW EVENTS//////////////
+
+//// Window resize event 8
+
+window.addEventListener("resize", function () {
+
+    if (window.innerWidth < 800) {
+        document.body.style.color = "seagreen";
+    } else {
+        document.body.style.color = "black";
+    }
+});
+
+
+
+/// WINDOW  load message event 9 
+window.addEventListener("load", function () {
+    this.alert("Welcome to the Bus. For fun bus press 'F' and for sad bus press 'S'")
+})
+
+
+// WINDOW RELOAD on "Esc" key RELEASE event 10
+
+function reload(event) {
+
+    if (event.key === 'Escape') {
+        location.reload();
+    }
+}
+
+
+document.addEventListener("keyup", reload)
