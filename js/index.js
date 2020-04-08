@@ -1,5 +1,7 @@
 // Your code goes here
 
+////// PRESS S FOR SAD BUS AND F FOR FUN BUS TEXT. RELOAD PAGE ON ESC KEY
+
 //////H1 click event 1
 
 let mainHeader = document.querySelector("h1")
@@ -38,7 +40,7 @@ mainHeader.addEventListener("mouseout", function () {
 
 ////NAV BAR//////
 
-//Double click Event 4
+//Double click Event 4 
 
 const navLinks = document.querySelectorAll("nav a")
 
@@ -58,8 +60,6 @@ navLinks[2].addEventListener("dblclick", function () {
 navLinks[3].addEventListener("dblclick", function () {
     navLinks[3].innerText = "Now"
 })
-
-
 
 
 
@@ -152,3 +152,19 @@ function reload(event) {
 
 
 document.addEventListener("keyup", reload)
+
+
+////// Add stopPropagation() when button is pressed, only works on container
+const pickDest = document.querySelector(".content-pick")
+const buttonDest = document.querySelectorAll(".content-pick .btn")
+
+pickDest.addEventListener("click", (event) => {
+    pickDest.style.borderTop = "3px dashed red";
+})
+
+for (let i = 0; i < buttonDest.length; i++) {
+    buttonDest[i].addEventListener('click', (event) => {
+        event.stopPropagation();
+    })
+
+}
